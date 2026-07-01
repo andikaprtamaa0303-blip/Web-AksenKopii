@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aksen Kopi | Coffee With Character</title>
+
+<meta name="description" content="Aksen Kopi menghadirkan pengalaman menikmati kopi premium dengan suasana hangat, modern, dan minimalis. Tempat terbaik untuk bekerja, berbincang, dan menikmati waktu.">
+<meta name="keywords" content="Aksen Kopi, Coffee Shop, Kopi Premium, Cafe Minimalis, Specialty Coffee">
+<meta name="author" content="Aksen Kopi">
+
+<style>
+
+:root{
+    --bg:#f8f5f1;
+    --surface:#ffffff;
+    --primary:#6f4e37;
+    --primary-dark:#4d3525;
+    --secondary:#d9c3a7;
+    --text:#2c2118;
+    --muted:#76685b;
+    --border:#e8ddd1;
+    --shadow:0 15px 35px rgba(111,78,55,.08);
+    --radius:22px;
+    --transition:.35s ease;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    
+    padding:90px 0;
+}
+
+h1,h2,h3{
+    color:var(--text);
+    line-height:1.1;
+}
+
+h1{
+    font-size:clamp(3rem,8vw,6rem);
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+h2{
+    font-size:clamp(2rem,5vw,3.3rem);
+    margin-bottom:20px;
+}
+
+p{
+    color:var(--muted);
+}
+
+.section-label{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid var(--border);
+    color:var(--primary);
+    font-size:.85rem;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 30px;
+    border-radius:999px;
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:var(--primary-dark);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    background:#fff;
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(248,245,241,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255, 8, 8, 0.08);
+}
+
+.navbar{
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color: black;
+    transform: scale(0.98);
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+    background-color: black;
+    color: white;
+    transform: scale(0.98);
+    padding:10px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle, rgba(111,78,55,.12), transparent 70%);
+    top:-250px;
+    right:-200px;
+}
+
+.hero-grid{
+    display:grid;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-content p{
+    font-size:1.1rem;
+    max-width:650px;
+    margin:25px 0 35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.hero-card{
+    background:var(--surface);
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.hero-card h3{
+    margin-bottom:10px;
+}
+
+.about-grid,
+.products-grid,
+.testimonials-grid{
+    display:grid;
+    gap:25px;
+}
+
+.card{
+    background:var(--surface);
+    padding:32px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    transition:var(--transition);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.product-icon{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    background:rgba(111,78,55,.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.3rem;
+    margin-bottom:18px;
+}
+
+.testimonial{
+    position:relative;
+}
+
+.quote{
+    font-size:3rem;
+    color:rgba(111,78,55,.15);
+    position:absolute;
+    top:15px;
+    right:20px;
+}
+
+.stars{
+    color:#c68b59;
+    margin-bottom:12px;
+}
+
+.faq-item{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    margin-bottom:15px;
+    overflow:hidden;
+}
+
+.faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:20px;
+    font-weight:600;
+}
+
+.faq-item p{
+    padding:0 20px 20px;
+}
+
+.contact-wrapper{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:40px;
+    box-shadow:var(--shadow);
+}
+
+form{
+    display:grid;
+    gap:18px;
+}
+
+input,
+textarea{
+    padding:16px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:#fff;
+    font-size:1rem;
+    outline:none;
+    transition:var(--transition);
+}
+
+input:focus,
+textarea:focus{
+    border-color:var(--primary);
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+footer{
+    background:var(--primary-dark);
+    color:#fff;
+    padding:60px 0 30px;
+}
+
+.footer-grid{
+    display:grid;
+    gap:30px;
+}
+
+.footer-grid p{
+    color:rgba(255,255,255,.7);
+}
+
+.footer-bottom{
+    margin-top:40px;
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:20px;
+    text-align:center;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(min-width:768px){
+
+.hero-grid{
+    grid-template-columns:1.4fr .8fr;
+}
+
+.about-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.products-grid{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.testimonials-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.footer-grid{
+    grid-template-columns:2fr 1fr 1fr;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <div class="logo">Aksen Kopi</div>
+        <nav class="nav-links">
+            <a href="#about">Tentang</a>
+            <a href="#products">Menu</a>
+            <a href="#reviews">Ulasan</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+            <span class="section-label">Premium Coffee Experience</span>
+
+            <h1>Kopi yang Memberi Karakter pada Setiap Momen.</h1>
+
+            <p>
+                Di Aksen Kopi, setiap cangkir diracik dengan perhatian pada detail.
+                Menggabungkan kualitas biji kopi pilihan, suasana hangat, dan pelayanan
+                yang ramah untuk menciptakan pengalaman yang berkesan.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Lihat Menu</a>
+                <a href="#contact" class="btn btn-secondary">Reservasi</a>
+            </div>
+        </div>
+
+        <div class="hero-card reveal">
+            <marquee behavior="scroll" direction="left" scrollamount="10">
+            <img src="Coffe Signature.jpg" alt="Coffe Signature" height="200px" width="145px">
+            <img src="Signature Kopii.jpg" alt="Signature Kopii" height="200px " width="150px">
+            <img src="SigKop.jpg" alt="SigKop" height="200px " width="150px">
+            </marquee>
+            
+            <h3>☕ Signature Experience</h3>
+            <p>
+                Kopi premium, interior minimalis bernuansa cokelat hangat,
+                dan atmosfer yang membuat pelanggan ingin kembali lagi.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+
+        <span class="section-label reveal">Cerita Kami</span>
+        <h2 class="reveal">Lebih dari Sekadar Coffee Shop</h2>
+
+        <div class="about-grid">
+
+            <div class="card reveal">
+                <h3>Awal Mula Aksen Kopi</h3>
+                <p>
+                    Berawal dari kecintaan terhadap kopi berkualitas dan ruang yang nyaman,
+                    Aksen Kopi hadir untuk menjadi tempat berkumpul, bekerja, dan menikmati
+                    waktu dengan suasana yang elegan namun tetap hangat.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <h3>Filosofi Kami</h3>
+                <p>
+                    Setiap orang memiliki cerita dan karakter yang berbeda.
+                    Karena itu setiap racikan kopi kami dibuat untuk memberikan
+                    "aksen" yang unik pada hari pelanggan.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="products">
+    <div class="container">
+
+        <span class="section-label reveal">Menu Unggulan</span>
+        <h2 class="reveal">Favorit Pelanggan</h2>
+
+        <div class="products-grid">
+
+            <div class="card reveal">
+                <img src="Signature Latte.jpg" alt="Signature Latte" height="200px" width="145px">
+                <h3>Signature Latte</h3>
+                <p>Espresso premium dengan tekstur susu yang lembut dan seimbang.</p>
+            </div>
+
+            <div class="card reveal">
+                <img src="caramel-latte.jpg" alt="Caramel Latte" height="200px" width="145px">
+                <h3>Caramel Latte</h3>
+                <p>Perpaduan kopi dan karamel dengan rasa manis yang elegan.</p>
+            </div>
+
+            <div class="card reveal">
+                <img src="Cold Brew.jpg" alt="Cold Brew" height="200px" width="145px">    
+                <h3>Cold Brew</h3>
+                <p>Menampilkan karakter asli dari biji kopi pilihan Nusantara.</p>
+            </div>
+
+            <div class="card reveal">
+                <img src="download.png" alt="Chocolate Blend" height="200px">
+                <h3>Chocolate Blend</h3>
+                <p>Alternatif non-kopi dengan rasa cokelat premium yang kaya.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="container">
+
+        <span class="section-label reveal">Social Proof</span>
+        <h2 class="reveal">Dipercaya Banyak Pecinta Kopi</h2>
+
+        <div class="testimonials-grid">
+
+            <div class="card testimonial reveal">
+                <div class="quote">"</div>
+                <div class="stars">★★★★★</div>
+                <p>
+                    Tempatnya nyaman untuk bekerja dan kualitas kopinya konsisten.
+                    Salah satu coffee shop terbaik yang pernah saya kunjungi.
+                </p>
+                <br>
+                <strong>— Rizky</strong>
+            </div>
+
+            <div class="card testimonial reveal">
+                <div class="quote">"</div>
+                <div class="stars">★★★★★</div>
+                <p>
+                    Interiornya sederhana namun berkelas. Cocok untuk meeting
+                    santai maupun nongkrong bersama teman.
+                </p>
+                <br>
+                <strong>— Nadia</strong>
+            </div>
+
+            <div class="card testimonial reveal">
+                <div class="quote">"</div>
+                <div class="stars">★★★★★</div>
+                <p>
+                    Signature Latte-nya benar-benar berbeda. Rasanya halus dan
+                    meninggalkan aftertaste yang menyenangkan.
+                </p>
+                <br>
+                <strong>— Arga</strong>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+
+    <div class="container">
+
+        <span class="section-label reveal">FAQ</span>
+        <h2 class="reveal">Pertanyaan yang Sering Diajukan</h2>
+
+        <details class="faq-item reveal">
+            <summary>Apakah tersedia Wi-Fi?</summary>
+            <p>Ya, tersedia Wi-Fi gratis dengan koneksi stabil untuk bekerja maupun belajar.</p>
+        </details>
+
+        <details class="faq-item reveal">
+            <summary>Apakah bisa reservasi tempat?</summary>
+            <p>Ya, reservasi dapat dilakukan melalui kontak yang tersedia.</p>
+        </details>
+
+        <details class="faq-item reveal">
+            <summary>Apakah ada menu non-kopi?</summary>
+            <p>Tersedia berbagai minuman cokelat, teh premium, dan pilihan lainnya.</p>
+        </details>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="container">
+
+        <span class="section-label reveal">Hubungi Kami</span>
+        <h2 class="reveal">Mari Berkenalan</h2>
+
+        <div class="contact-wrapper reveal">
+
+            <form>
+
+                <input type="text" placeholder="Nama Lengkap">
+
+                <input type="email" placeholder="Alamat Email">
+
+                <textarea placeholder="Tulis pesan Anda..."></textarea>
+
+                <button class="btn btn-primary" type="submit">
+                    Kirim Pesan
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <h3>Aksen Kopi</h3>
+                <p>
+                    Tempat menikmati kopi premium dengan suasana hangat,
+                    profesional, dan berkarakter.
+                </p>
+            </div>
+
+            <div>
+                <h3>Kontak</h3>
+                <p>hello@aksenkopi.com</p>
+                <p>+62 895 3823 10300</p>
+            </div>
+
+            <div>
+                <h3>Jam Operasional</h3>
+                <p>Senin - Minggu</p>
+                <p>08.00 - 22.00 WIB</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            ©️ 2026 Aksen Kopi. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealElements(){
+
+    reveals.forEach(element=>{
+
+        const top = element.getBoundingClientRect().top;
+        const visible = window.innerHeight - 100;
+
+        if(top < visible){
+            element.classList.add('active');
+        }
+
+    });
+
+}
+
+window.addEventListener('scroll', revealElements);
+revealElements();
+
+</script>
+
+</body>
+</html>
